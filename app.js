@@ -1,5 +1,4 @@
 var express = require('express');
-var weather = require('./weather');
 var request = require('request');
 var https = require('https');
 var port = (process.env.VCAP_APP_PORT || 3000);
