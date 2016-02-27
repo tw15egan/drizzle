@@ -1,0 +1,104 @@
+// Font Stacks
+$font-family--primary: 'proxima-nova';
+$font-family--secondary: 'futura-pt';
+
+// Font Weights
+$font-weight--light: 300;
+$font-weight--regular: 400;
+$font-weight--bold: 700;
+
+// Base Colors
+$white: #fff;
+$black: #0b0b0b;
+$grey: #797e83;
+$fountain-blue: #52bab3;
+$emerald: #5ece7f;
+$sunglo: #e67478;
+$coral: #ff784f;
+$purple-majesty: #9279c3;
+$scooter: #39add1;
+
+// Color Usage
+$color-primary: $fountain-blue;
+$color-secondary: $scooter;
+$color-accent: $emerald;
+$color-shadow: rgba($black, .2);
+
+// Color Palette Modifiers
+$palettes: (
+  grey: (
+    xx-light : lighten($grey, 43%),
+    x-light : lighten($grey, 35%),
+    light : lighten($grey, 12%),
+    base : $grey,
+    dark : darken($grey, 8%),
+    x-dark : darken($grey, 16%)
+  ),
+  black: (
+    light : lighten($black, 10%),
+    base : $black,
+    dark : darken($black, 10%)
+  )
+);
+
+// UI Colors
+$ui-colors: (
+  default : $fountain-blue,
+  success : $emerald,
+  error : $sunglo,
+  warning : $coral,
+  info : $purple-majesty
+);
+
+// Text
+$base__font-size: 16px;
+$base__line: 24px;
+$letter-space: 1px;
+
+// Border radius
+$br--default: .4em;
+$br--round: 50%;
+
+
+// Calculate em values
+@function em($target, $context: $base__font-size) {
+  @return ($target / $context) * 1em;
+}
+
+// Call the color palette modifiers
+@function palette($palette, $shade: 'base') {
+  @return map-get(map-get($palettes, $palette), $shade);
+}
+
+
+
+// Base Styles
+* {
+  box-sizing: border-box;
+  transition: .3s;
+}
+
+body {
+  color: palette(gray);
+  font-size: $base__font-size;
+  line-height: ($base__line/$base__font-size);
+  font-family: $font-family--primary;
+}
+
+a {
+  color: palette(gray, dark);
+}
+
+p {
+  font-size: em(18px);
+  line-height: (27px / 18px);
+  margin: 0 0 em(30px, 18px);
+  font-weight: $font-weight--light;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

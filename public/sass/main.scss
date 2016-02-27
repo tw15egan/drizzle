@@ -1,0 +1,138 @@
+@import 'reset', 'variables';
+
+body, html {
+  transition: .3s;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
+}
+
+.form {
+  top: 0;
+  position: fixed;
+  min-height: 100%;
+  height: auto;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input,
+  button {
+    width: 100%;
+  }
+
+  input {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: palette(gray, x-light);
+    padding: 1.75rem .25rem 1.6rem 1rem;
+    text-transform: capitalize;
+    letter-spacing: .1rem;
+    outline: none;
+    border: 0;
+    font-size: 20px;
+    font-weight: 400;
+    height: 40px;
+    border-bottom: 5px solid transparent;
+
+
+    &:focus {
+      border-bottom: 5px solid palette(gray, light);
+    }
+  }
+
+  button {
+    outline: none;
+    border: 0;
+    font-size: 20px;
+  }
+
+  @media (max-width: 650px) {
+    width: 100%;
+  }
+}
+
+.search-results {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.search-results__list {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  li {
+    width: 100%;
+    display: flex;
+  }
+
+  a {
+    color: palette(gray, x-light);
+    border-left: 5px solid transparent;
+    width: 100%;
+    display: inline-block;
+    padding: 1rem .5rem;
+    font-size: 14px;
+    text-decoration: none;
+
+    &:hover {
+      border-left: 5px solid $coral;
+      background-color: palette(gray, x-light);
+      color: palette(gray, dark);
+    }
+  }
+}
+
+.container {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  background: url('https://images.unsplash.com/photo-1445285303476-2f3b16d67b7a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=20d29c59cb755a2febadbd9499bf6454');
+  background-size: cover;
+  position: relative;
+
+  @media (max-width: 650px) {
+    width: 100%;
+  }
+}
+
+.weather {
+  position: absolute;
+  left: 25%;
+  padding: 2rem 4rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.location {
+;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 200;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.temperature {
+  font-size: 2rem;
+}

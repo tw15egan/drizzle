@@ -1,0 +1,21 @@
+{
+  "name": "NodejsStarterApp",
+  "version": "0.0.1",
+  "description": "A sample nodejs app for Bluemix",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cfenv": "1.0.x",
+    "express": "4.12.x",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.5",
+    "request": "^2.69.0",
+    "socket.io": "latest"
+  },
+  "repository": {},
+  "engines": {
+    "node": "0.12.x"
+  }
+}
