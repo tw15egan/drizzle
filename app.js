@@ -41,6 +41,7 @@ io.on('connection', function (socket) {
 
   socket.on('weatherClick', function(query) {
     var url = 'http://api.wunderground.com/api/30fd7a559cd49cb5/conditions' + query + '.json'
+
     var weatherOutput = getWeather(url, function(results) {
       var weatherOutput = handleWeather(results);
       var location = weatherOutput[0]
@@ -120,6 +121,4 @@ function handleWeather(results) {
 
 
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
+module.exports = app
