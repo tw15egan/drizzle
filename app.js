@@ -1,6 +1,5 @@
 var express = require('express');
 var request = require('request');
-var https = require('https');
 var port = (process.env.VCAP_APP_PORT || 3000);
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 var cfenv = require('cfenv');
@@ -8,8 +7,7 @@ var cfenv = require('cfenv');
 
 // create a new express server
 var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io = require('socket.io')();
 
 
 // Handlebars initialization
@@ -118,8 +116,4 @@ function handleWeather(results) {
   return arr;
 }
 
-app.set('port', (process.env.PORT || 5000));
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
+io.listen(5000)
