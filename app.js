@@ -23,7 +23,6 @@ app.use(express.static(__dirname + '/public'));
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 
-
 // Default route
 app.get('/', function(req, res) {
   res.render('home');
@@ -119,6 +118,8 @@ function handleWeather(results) {
   return arr;
 }
 
+app.set('port', (process.env.PORT || 5000));
 
-
-module.exports = app
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
