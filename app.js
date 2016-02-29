@@ -1,15 +1,16 @@
 var express = require('express');
 var request = require('request');
 var https = require('https');
-var port = (process.env.VCAP_APP_PORT || 3000);
-var host = (process.env.VCAP_APP_HOST || 'localhost');
 var cfenv = require('cfenv');
+
 
 
 // create a new express server
 var app = express();
-var server = require('http').createServer(app);
+var http = require('http')
+var server = http.Server(app);
 var io = require('socket.io')(server);
+server.listen(process.env.PORT || 3000)
 
 
 // Handlebars initialization
@@ -23,7 +24,6 @@ app.use(express.static(__dirname + '/public'));
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 
-app.set('port', (process.env.PORT || 5000));
 
 // Default route
 app.get('/', function(req, res) {
@@ -121,4 +121,5 @@ function handleWeather(results) {
 }
 
 
-server.listen(3000);
+
+module.exports = app
